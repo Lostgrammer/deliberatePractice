@@ -1,8 +1,6 @@
 package com.carlosvega.learnJava.files;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,13 +34,25 @@ public class Main {
 //            }
 //        }
         //new way
-        String line;
-        try(BufferedReader reader = new BufferedReader(new FileReader("myfile.txt"))){
-            line = reader.readLine();
-            while (line != null){
-                System.out.println(line);
-                line = reader.readLine();
-            }
+//        String line;
+//        try(BufferedReader reader = new BufferedReader(new FileReader("myfile.txt"))){
+//            line = reader.readLine();
+//            while (line != null){
+//                System.out.println(line);
+//                line = reader.readLine();
+//            }
+//        }catch (IOException e){
+//            System.out.println(e.getMessage());
+//        }
+
+        //writing
+        String text = "no quiero";
+        /*new FileWriter("myfile2.txt",true) => Pasamos 2 argumentos: la ruta del archivo y el valor true, indicando
+        * que se agregara el contenido que se va a escribir a un archivo si este existirera,
+        * en caso fuera false la informacion se sobreescribiria de existir el archivo*/
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("myfile2.txt",true))){
+            writer.write(text);
+            writer.newLine();
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
