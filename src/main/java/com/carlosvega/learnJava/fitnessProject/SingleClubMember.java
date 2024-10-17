@@ -17,6 +17,7 @@ public class SingleClubMember extends Member{
 
     @Override
     public String toString() {
+        //en el libro es diferente
         return getMemberType() + ", " + getMemberId() + ", " + getName() + ", " + getFee() + ", " + getClub();
     }
 }
