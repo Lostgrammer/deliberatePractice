@@ -74,7 +74,7 @@ public class MembershipManagement {
         double memShipfees;
         int memShipMemberId;
         Member mbr;
-        Calculator<Integer> memShipNameCal;
+        Calculator<Integer> memShipNameCal; //estamos declarando una referencia de la interfaz
 
         System.out.println("Insert name: ");
         memShipName = input.nextLine();
@@ -82,11 +82,18 @@ public class MembershipManagement {
         System.out.println("Please enter club id");
         memShipclub = getIntInput();
         memShipMemberId = setMemberID(memberList);
+        //calcular valor memShipNameCal
+        //en caso el valor ingresado sea cualquiera menos la opcion multiclub
         if(memShipclub != multiClubValue){
-//            memShipclub = (n)->{
-//                case 1 ->
-//            } git commit -m ""
+            //n seria el valor del argumento que reemplaza el parametro definido en la interfaz
+            memShipNameCal = (n)->{
+                return switch (n){
+                    case 1 ->
+                }
+
+            };
             //mbr = new SingleClubMember(memShipMemberId,memShipMemberId,memShipName,);
+        //si se escogio multiclub
         }else{
             //mbr = new MultiClubMember(memShipMemberId,memShipMemberId,memShipName,);
         }
