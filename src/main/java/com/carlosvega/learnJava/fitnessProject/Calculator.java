@@ -3,5 +3,5 @@ package com.carlosvega.learnJava.fitnessProject;
 @FunctionalInterface
 public interface Calculator <T extends Number>{
     //metodo abstracto
-    public void calculateFees(T clubId);
+    public double calculateFees(T clubId);
 }
