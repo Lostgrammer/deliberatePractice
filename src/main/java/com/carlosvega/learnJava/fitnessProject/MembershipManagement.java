@@ -1,5 +1,6 @@
 package com.carlosvega.learnJava.fitnessProject;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -7,6 +8,10 @@ import java.util.Scanner;
 //maneja el proceso de adicionar y eliminar miembros
 public class MembershipManagement {
     final private Scanner input = new Scanner(System.in);
+
+    public Scanner getInput() {
+        return input;
+    }
 
     private int getIntInput(){
         int choice = 0;
@@ -65,7 +70,7 @@ public class MembershipManagement {
             return 1;
         }
     }
-    public String addMembers(LinkedList<Member> memberList){
+    public String addMember(LinkedList<Member> memberList){
         int multiClubValue = 4; // se coloca aca porque solo se usara en este metodo
         String memShipName;
         int memShipClub;
@@ -138,10 +143,10 @@ public class MembershipManagement {
         for (int i = 0; i < m.size(); i++) {
             if (m.get(i).getMemberId() == memberId){
                 String[] memberInfo = m.get(i).toString().split(", ");
-                System.out.println(memberInfo);
+                System.out.println(Arrays.toString(memberInfo));
                 return;
             }
         }
-        System.out.println("There is no user with id" + memberId);
+        System.out.println("There is no user with id " + memberId);
     }
 }

@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.LinkedList;
 
 public class FileHandler {
+
     //methods
     public LinkedList<Member> readFile(){
 
@@ -15,7 +16,7 @@ public class FileHandler {
         try(BufferedReader reader = new BufferedReader(new FileReader("members.csv"))){
             readLine = reader.readLine();
             while (readLine != null){
-                splitLine = readLine.split(",");
+                splitLine = readLine.split(", ");
                 if (splitLine[0].equals("s")){
                     member = new SingleClubMember('S', Integer.parseInt(splitLine[1]),
                             splitLine[2], Double.parseDouble(splitLine[3]), Integer.parseInt(splitLine[4]));
@@ -27,19 +28,23 @@ public class FileHandler {
                 readLine = reader.readLine();
             }
         }catch (IOException e){
-            System.out.println(e.getMessage());
+            System.out.println("Problemas para leer el archivo: " + e.getMessage());
+        }catch (Exception e){
+            System.out.println("Problema no identificado: " + e.getMessage());
         }
         return m;
     }
+
     public void appendFile(String member){
 
         try(BufferedWriter writer = new BufferedWriter(new FileWriter("members.csv", true))) {
             writer.write(member +"\n");
             writer.newLine();
         }catch (IOException e){
-            System.out.println(e.getMessage());
+            System.out.println("Problemas para agregar info al archivo: " + e.getMessage());
         }
     }
+
     public void overWriteFile(LinkedList<Member> mList){
         String s;
         try(BufferedWriter writer = new BufferedWriter(new FileWriter("members.temp", false))) {
@@ -48,7 +53,7 @@ public class FileHandler {
                 writer.write(s +"\n"); //escribir
             }
         }catch (IOException e){
-            System.out.println(e.getMessage());
+            System.out.println("Problemas para sobreescribir el archivo: " + e.getMessage());
         }
         try {
             File f = new File("members.csv");
@@ -56,7 +61,7 @@ public class FileHandler {
             tf.renameTo(f);
             f.delete();
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("Problemas reemplazar el archivo temporal con el original: " + e.getMessage());
         }
     }
 }
