@@ -36,7 +36,7 @@ public class FileHandler {
     }
 
     public void appendFile(String member){
-
+        //hay un problema con la escritura de archivos que empieza desde aqui
         try(BufferedWriter writer = new BufferedWriter(new FileWriter("members.csv", true))) {
             writer.write(member +"\n");
             writer.newLine();
