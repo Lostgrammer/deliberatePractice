@@ -20,8 +20,10 @@ public class Main {
                         case 1 -> {mem = memMan.addMember(members);
                                     fh.appendFile(mem);}
                         case 2 -> {memMan.removeMember(members);
+                            fh.overWriteFile(members);
                                     }
-                        case 3 -> {memMan.showMemberInfo(members);}
+                        case 3 -> {memMan.showMemberInfo(members);
+                                    }
                         case 4 -> memMan.quitProgram();
                     }
 
