@@ -129,7 +129,7 @@ public class MembershipManagement {
                 return;
             }
         }
-        System.out.println("There is no user with id" + memberId);
+        System.out.println("There is no user with id " + memberId);
     }
     public void quitProgram(){
         System.out.println("Tnank you for use my program");
